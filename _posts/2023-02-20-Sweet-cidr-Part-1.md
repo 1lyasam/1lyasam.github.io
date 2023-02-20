@@ -24,7 +24,7 @@ The problem with those methods is that the output will not exactly point you to 
 2. We don’t really know which ports are allowed. That fact makes life harder and will require another check like running NMAP or checking the security group configuration for this IP Address.
 
 A more efficient way to approach this challenge would be through AWS security groups. If you will search for “0.0.0.0/0” CIDR in all the inbound SG(security groups) rules in all the regions, you will get a final list for the following values [SG | IPv4 CIDR | Port\s | Protocol].
-But that is only half of the way. You will still need to understand where those SGs applied. As a security engineer, you want to see which machine\service uses this inbound rule and check what actual application is listening for this port, for example, an inbound rule for port 443 might be legitimate if the machine to which the rule is attached is a load balancer service for your production SAAS Web UI. on the other hand, if it’s an EC2 with Jenkins Web UI it’s not legitimate. 
+But that is only half of the way. You will still need to understand where those SGs applied. As a security engineer, you want to see which machine\service uses this inbound rule and check what actual application is listening for this port, for example, an inbound rule for port 443 might be legitimate if the machine to which the rule is attached is a load balancer service for your production SAAS Web UI. on the other hand, if it’s an EC2 with Admin panel Web UI it’s not legitimate. 
 
 ### NICs for the rescue
 
