@@ -2,14 +2,9 @@
 layout: page
 title: About
 permalink: /about/
+published: true
 ---
 
-Some information about you!
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I'm a Cyber Security enthusiast, Application security researcher, Penetration tester.
+My passion is about diving deep into how systems works. than come up with my own ideas about how to hack them.
