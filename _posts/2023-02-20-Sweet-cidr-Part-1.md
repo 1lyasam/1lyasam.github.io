@@ -9,7 +9,6 @@ SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the
 This post is part 1 out of 2 parts series which will discuss the use cases and the reasons for creating the SweetCIDR tool. I created this tool during my work at Controlup to assist with mapping the cloud attack surface efficiently.
 This post will discuss the "Internet facing resources" use case. Part 2 will deal with internal communication mapping.
 
-![alt text]({{ site.baseurl }}/images/sweet_cidr_1.png "title") 
 
 ### Public Facing
 
@@ -31,6 +30,8 @@ But that is only half of the way. You will still need to understand where those 
 ### NICs for the rescue
 
 Under the hood, every service which exposes network functionality, whether it’s an EC2, LB or RDS, etc., has an AWS resource which is called “Network interface”. When you apply an SG on an EC2 machine, what happens behind the scenes is that the SG is attached to the Network interface of that machine.
+
+![alt text]({{ site.baseurl }}/images/sweet_cidr_1.png "title") 
 
 ### Sweet CIDR flow
 
