@@ -34,7 +34,7 @@ Under the hood, every service which exposes network functionality, whether it’
 
 ### Sweet CIDR flow
 
-Taking all this information into account, I’ve built the SweetCIDR tool. The tool takes an IPv4 CIDR as an input and retrieves information (InstanceId, IP, Port, Protocol, and more.) about all AWS objects that as part of their SG configuration they allow the CIDR in their inbound rules.
+Taking all this information into account, I’ve built the SweetCIDR tool. The tool takes an IPv4 CIDR as an input and retrieves information (InstanceId, IP, Port, Protocol, and more.) about all AWS objects which as part of their SG configuration they allow the CIDR in their inbound rules.
 This is achieved by combining information from SGs regarding the rules logic together with network interface information.
 This way, you will be able to see the actual components which are exposed to the internet with their public IP, Ports, Protocol, and instance ID.
 
