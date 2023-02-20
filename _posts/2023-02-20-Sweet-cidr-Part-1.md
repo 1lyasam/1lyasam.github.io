@@ -21,10 +21,10 @@ To detect such a situation as quickly as possible, security engineers must const
 If you deal with AWS. you can use a script such as [aws_public_ips](https://github.com/arkadiyt/aws_public_ips) to list all your internet-facing IP addresses. Or use the AWS CLI and do describe_{service} for each service and each region which is active in your cloud setup ( “describe_instances”, “describe_load_balancers” etc.)
 
 The problem with those methods is that the output will not exactly point you to what you looked for. Because
-1. very frequently, the existence of a public address is not a problem by itself. If the security group of the resource is restricted to a specific IP address that belongs to the organization it might be OK and not interesting to us.
+1. The results are misleading, the existence of a public address is not a problem by itself. If the security group of the resource is restricted to a specific IP address that belongs to the organization it might be OK and not interesting to us.
 2. We don’t really know which ports are allowed. That fact makes life harder and will require another check like running NMAP or checking the security group configuration for this IP Address.
 
-A more efficient way to approach the public-facing question in AWS would be through security groups. If you will search for “0.0.0.0/0” CIDR in all the inbound SG(security groups) rules in all the regions, you will get a final list for the following values [SG | IPv4 CIDR | Port\s | Protocol].
+A more efficient way to approach this challenge would be through AWS security groups. If you will search for “0.0.0.0/0” CIDR in all the inbound SG(security groups) rules in all the regions, you will get a final list for the following values [SG | IPv4 CIDR | Port\s | Protocol].
 But that is only half of the way. You will still need to understand where those SGs applied. As a security engineer, you want to see which machine\service uses this inbound rule and check what actual application is listening for this port, for example, an inbound rule for port 443 might be legitimate if the machine to which the rule is attached is a load balancer service for your production SAAS Web UI. on the other hand, if it’s an EC2 with Jenkins Web UI it’s not legitimate. 
 
 ### NICs for the rescue
