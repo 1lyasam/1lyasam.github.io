@@ -15,7 +15,7 @@ This post will discuss the "Internet facing resources" use case. Part 2 will dea
 As people who are in charge of cloud security, we always struggle to understand the full picture of our cloud network. The DevOps teams are working hard and fast to develop the cloud infrastructure under very tight schedules and the network picture changes every day. Sometimes this quick pace of work will introduce security problems. Sometimes, very painful ones.  
 The most critical question that you would probably ask yourself is, what Is exposed from my cloud infrastructure to the wild internet?  
 A brief moment of inattention of a cloud engineer can cause a very sensitive Web UI or management port to be exposed to everyone in the world. If this is combined with another mistake like forgetting to change the system's default password or a CVE, This can quickly escalate to a total security disaster.
-Attackers are scanning the whole internet constantly and using tools like Shodan.io and Censys To map their attack surface..
+Attackers are scanning the whole internet constantly and using tools like Shodan.io and Censys To map their attack surface.
 Your exposed System\Web UI\Admin panel might be attacked a few hours or even moments after deployment.
 To detect such a situation as quickly as possible, security engineers must constantly map the internet-facing attack surface of the cloud infrastructure.
 If you deal with AWS. you can use a script such as [aws_public_ips](https://github.com/arkadiyt/aws_public_ips) to list all your internet-facing IP addresses. Or use the AWS CLI and do describe_{service} for each service and each region which is active in your cloud setup ( “describe_instances”, “describe_load_balancers” etc.)
