@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ### TL;DR
 SweetCIDR is an AWS network mapping tool. which can help you to answer the question. "Suppose an attacker will be "here"(some subnet), which targets he will be able to reach ? by which protocols ? and on which ports ?". 
@@ -58,4 +58,3 @@ PublicIp PrivateIp privateIp Ports
 Saved Excel file to 0-0-0-0_11.xlsx
 Saved CSV file to 0-0-0-0_11.csv
 ```
-
