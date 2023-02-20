@@ -9,6 +9,7 @@ SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the
 This post is part 1 out of 2 parts series which will discuss the use cases and the reasons for creating the SweetCIDR tool. I created this tool during my work at Controlup to assist with mapping the cloud attack surface efficiently.
 This post will discuss the "Internet facing resources" use case. Part 2 will deal with internal communication mapping.
 
+![alt text]({{ site.baseurl }}/images/sweet_cidr_1.png "title") 
 
 ### Public Facing
 
