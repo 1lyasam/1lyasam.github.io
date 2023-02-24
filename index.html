@@ -2,6 +2,16 @@
 layout: default
 published: true
 ---
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V5SL99F0XX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V5SL99F0XX');
+</script>
+
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
