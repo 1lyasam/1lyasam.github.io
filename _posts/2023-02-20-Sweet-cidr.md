@@ -6,6 +6,7 @@ SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Intro
+<
 The small tool that I'm going to introduce here, helped me to significantly reduce the time wasted on nmap scanning when doing a white-box AWS network pentest\security assessment. The trick is to combine data collected from AWS SDK together with nmap scanning.
 
 
@@ -19,4 +20,4 @@ Suppose that you are dealing with the following situation in AWS cloud :
 4. The 2 VPCs have VPC peering between them
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
 
-<img src="/images/cidr_example_2.drawio.png"  width="600" height="300">
+<img src="/images/cidr_example_2.drawio.png"  width="600" height="375">
