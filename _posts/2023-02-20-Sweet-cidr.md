@@ -19,6 +19,7 @@ Suppose that you are dealing with the following situation in AWS cloud :
 3. There is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you might want to exploit.
 4. The 2 VPCs have VPC peering between them
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
+
 <img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style=style="border:1px solid #555">
 <font size="3"> The Arrow rerpresents attacker's intereset (The communication itself must be bi-directional)</font>
 
