@@ -20,3 +20,4 @@ Suppose that you are dealing with the following situation in AWS cloud :
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
 
 ![alt text]({{ site.baseurl }}/images/cidr_example_2.drawio.png "sketch") 
+<img src="https://mma.prnewswire.com/media/1513369/Educative_Logo.jpg"  width="600" height="300">
