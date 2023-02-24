@@ -15,9 +15,10 @@ When doing a white-box AWS cloud network pentest on a large cloud environment, T
 You can start by Nmap scanning the 24 CIDR of your current IP. This might be a good starting point for you and chances are good that some low hanging fruits will come up with the scan results. But since as a security consultant\engineer your task is to cover as many vulnerabilities as possible on a wide attack surface that might be not sufficient.
 Suppose that you are dealing with the following situation in AWS cloud :
 1. There are 2 VPCs 10.0.0.0/16 and 10.2.0.0/16.
-2. Your initial access machine is on 10.0.0.45 within the first VPC
+2. Your initial access machine is on 10.0.0.33 within the first VPC
 3. There is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you might want to exploit.
 4. The 2 VPCs have VPC peering between them
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
 
 <img src="/images/cidr_example_2.drawio.png"  width="600" height="375">
+<font size="7"> The Arrow rerpresents the attacker intentions (The communication itself must be bi-directional)</font>
