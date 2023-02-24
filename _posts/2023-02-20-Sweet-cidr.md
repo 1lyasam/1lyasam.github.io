@@ -6,7 +6,7 @@ SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Intro
-<
+
 The small tool that I'm going to introduce here, helped me to significantly reduce the time wasted on nmap scanning when doing a white-box AWS network pentest\security assessment. The trick is to combine data collected from AWS SDK together with nmap scanning.
 
 
@@ -20,5 +20,33 @@ Suppose that you are dealing with the following situation in AWS cloud :
 4. The 2 VPCs have VPC peering between them
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
 
-<img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style="border:5px solid #555">
-<font size="7"> The Arrow rerpresents the attacker intentions (The communication itself must be bi-directional)</font>
+<img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style=style="border:1px solid #555">
+<font size="3"> The Arrow rerpresents attacker's intereset (The communication itself must be bi-directional)</font>
+
+If you will scan 24 or even 16 CIDRs subnets of your own IP. You might never realize that you missed an easy and critical attack path. On the other hand, In order to discover it with Nmap you will probably need to not only scan 10.0.0.0/8 CIDR, but also scan all possible TCP ports (65536) instead of top 1000 (nmap default). This is because 8444 is not listed as a well known port. 
+In this situation, the time which is needed for scanning becomes very unrealistic. Especially for a time limited (sometimes expansive) security assessment.
+
+So while I was frustrated from my slow scans, I wanted to find a way to do the scans much more efficiently and to sharpen their accuracy. And since the assessment is defined as White-box, there is no problem using internal information.
+My immediate thought was to somehow pull information from AWS SDK. I knew that I could extract all the IP addresses by using publicly available open source tools such as [awsipinventory](https://github.com/okelet/awsipinventory). This tool does its thing by looping through all the network interfaces with the help of [describe_network_interfaces()]https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html AWS SDK function. This function retrieves information about all network interfaces of the AWS account, regardless of the services they are related to, even though it’s listed under EC2 APIs. It will provide information about NICs of EC2, RDS, OpenSearch, ELB, ELBv2 and probably any other service (since it’s not documented I'm not aware of what is not included but that probably very specific services, if any).
+The result of such a tool is a good starting point. We will have an accurate list of all IPs in the account but can I make it any better to fit my scenario ? Maybe I can get hints regarding ports and not only IPs ? I realized that yes !
+
+### Security Groups & Network Interfaces
+Security groups in AWS are lists of traffic control rules which can be attached to a network interface which is then attached to a specific resource (EC2, RDS, ELB etc..) . When attached, security groups control the inbound and outbound traffic to and from the instance\service. Each NIC should have at least 1 security group attached to it.
+
+<img src="/images/sg_example.png"  width="600" height="375" style=style="border:1px solid #555">
+
+As can be seen above, each rule describes the allowed source CIDR, port and protocol. Without having a rule which allows the inbound traffic, communication to the service will not be possible.
+Having those things in mind, it will possible to do the following logic :
+Loop through all Security groups (sg) in the account
+1. For each sg, loop through all rules inside the sg
+2. For each rule, check if the source field matches a CIDR of our interest
+3. For each match, search for all the attached network interfaces(NICs) + capture the port and protocol.
+4. For each NIC, take the private and public IP addresses.
+5. For each NIC, print the private + public IP address together with port and protocol.
+
+
+
+
+
+
+
