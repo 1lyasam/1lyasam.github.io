@@ -16,7 +16,7 @@ You can start by Nmap scanning the 24 CIDR of your current IP. This might be a g
 Suppose that you are dealing with the following situation in AWS cloud :
 1. There are 2 VPCs 10.0.0.0/16 and 10.2.0.0/16.
 2. Your initial access machine is on 10.0.0.33 within the first VPC
-3. There is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you might want to exploit.
+3. There is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you might want to exploit if you knew about it's existance.
 4. The 2 VPCs have VPC peering between them
 5. Routing is configured between 10.0.0.0/24 to 10.2.45.0/24
 
