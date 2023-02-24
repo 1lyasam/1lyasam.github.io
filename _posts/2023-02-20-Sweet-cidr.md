@@ -52,7 +52,7 @@ By applying the above logic, our attacking server will be allowed to communicate
 - 10.0.0.33/32 (explicit IP address).
 <a/>
 
-By running the logic against each of those combinations the IP 10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
+By running the logic mentioned before, against each of those combinations the IP.10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
 - port 8444 
 - 1 (all ports)
 - Some range that contains 8444 (like 7000-9000)
