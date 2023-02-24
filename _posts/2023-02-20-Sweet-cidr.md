@@ -1,6 +1,16 @@
 ---
 published: true
 ---
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V5SL99F0XX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V5SL99F0XX');
+</script>
+
 ### TL;DR
 SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the following question. "Suppose an attacker will be at 10.0.7.8/24 , Which target services he will be able to reach in the cloud ? by which protocols ? and on which ports ?". 
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
@@ -59,5 +69,3 @@ By running the logic mentioned before, against each of those combinations the IP
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
 If port range is used we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
-
-
