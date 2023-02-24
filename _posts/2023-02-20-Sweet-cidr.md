@@ -51,6 +51,7 @@ By applying the above logic, our attacking server will be allowed to communicate
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
 - 10.0.0.33/32 (explicit IP address).
 <a/>
+
 By running the logic against each of those combinations the IP 10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
 - port 8444 
 - 1 (all ports)
