@@ -7,11 +7,11 @@ SweetCIDR is an AWS cloud network mapping tool. which can help you to answer the
 
 ### Intro
 
-The small tool that I'm going to introduce here, helped me to significantly reduce the time wasted on nmap scanning when doing a white-box AWS network pentest\security assessment. The trick is to combine data collected from AWS SDK together with nmap scanning.
+The small tool which I built and going to introduce here, helped me to significantly reduce the time wasted on nmap scanning when doing a white-box AWS network pentest\security assessment. The trick is to combine data collected from AWS SDK together with nmap scanning.
 
 
 ### Background Story
-When doing a white-box AWS cloud network pentest on a large cloud environment, The first task that you are dealing with is enumeration. You will need to understand and enumerate which ports are open on which IP addresses. Or in other words “With whom can I communicate from my current position”.
+When doing a white-box AWS cloud network pentest on a large cloud environment, The first task that you are dealing with is enumeration. You will need to understand and enumerate which ports are open on which IP addresses. Or in other words “With whom can I communicate from my current position and how”.
 You can start by Nmap scanning the 24 CIDR of your current IP. This might be a good starting point for you and chances are good that some low hanging fruits will come up with the scan results. But since as a security consultant\engineer your task is to cover as many vulnerabilities as possible on a wide attack surface that might be not sufficient.
 Suppose that you are dealing with the following situation in AWS cloud :
 1. There are 2 VPCs 10.0.0.0/16 and 10.2.0.0/16.
