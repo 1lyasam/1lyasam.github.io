@@ -51,9 +51,9 @@ By applying the above logic, our attacking server will be allowed to communicate
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
 - 10.0.0.33/32 (explicit IP address)</br>
 By running the logic against each of those combinations the IP 10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
--port 8444 
--1 (all ports)
--Some range that contains 8444 (like 7000-9000)
+- port 8444 
+- 1 (all ports)
+- Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
 If port range is used we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
