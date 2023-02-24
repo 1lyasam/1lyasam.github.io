@@ -33,7 +33,7 @@ The result of such a tool is a good starting point. We will have an accurate lis
 ### Security Groups & Network Interfaces
 Security groups in AWS are lists of traffic control rules which can be attached to a network interface which is then attached to a specific resource (EC2, RDS, ELB etc..) . When attached, security groups control the inbound and outbound traffic to and from the instance\service. Each NIC should have at least 1 security group attached to it.
 
-<img src="/images/sg_example.png"  width="600" height="375" style="border:1px solid #555">
+<img src="/images/sg_example.png"  width="700" height="437" style="border:1px solid #555">
 
 As can be seen above, each rule describes the allowed source CIDR, port and protocol. Without having a rule which allows the inbound traffic, communication to the service will not be possible.
 Having those things in mind, it will possible to do the following logic :
