@@ -46,14 +46,14 @@ Loop through all Security groups (sg) in the account
 
 ### How does this logic solve the problem ? 
 
-Going back to our example. The attacker is located on “10.0.0.45”. If the vulnerable service on  https://10.2.45.9:8444 accepts communication form “10.0.0.45”. There must be an SG rule which allows such communication.
+Going back to our example. The attacker is located on “10.0.0.33”. If the vulnerable service on  https://10.2.45.9:8444 accepts communication form “10.0.0.33”. There must be an SG rule which allows such communication.
 By applying the above logic, our attacking server will be allowed to communicate with target server if an SG rule will allow any of the following CIDR combinations for port 8444
-10.0.0.0 / 8-26 
-10.0.0.45 / 32 (explicit IP address)
+-10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
+-10.0.0.33/32 (explicit IP address)
 By running the logic against each of those combinations the IP 10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
-port 8444 
+-port 8444 
 -1 (all ports)
-Some range that contains 8444 (like 7000-9000)
+-Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
 If port range is used we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
