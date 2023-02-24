@@ -49,7 +49,7 @@ Loop through all Security groups (sg) in the account
 Going back to our example. The attacker is located on “10.0.0.33”. If the vulnerable service on  https://10.2.45.9:8444 accepts communication form “10.0.0.33”. There must be an SG rule which allows such communication.
 By applying the above logic, our attacking server will be allowed to communicate with target server if an SG rule will allow any of the following CIDR combinations for port 8444
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
-- 10.0.0.33/32 (explicit IP address)
+- 10.0.0.33/32 (explicit IP address)</br>
 By running the logic against each of those combinations the IP 10.2.45.9 should be revealed in the results at some point, with a port configuration that might be one of the following :
 -port 8444 
 -1 (all ports)
