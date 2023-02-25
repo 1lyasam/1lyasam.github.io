@@ -51,7 +51,7 @@ As shown above, each rule specifies the allowed source CIDR, port, and protocol.
 
 ### How does this logic solve the problem ? 
 
-Going back to our example, if the attacker is located on "10.0.0.33" and the vulnerable service on "https://10.2.45.9:8444" accepts communication from "10.0.0.33", there must be an SG rule allowing such communication. By applying the above logic, the attacker will be allowed to communicate with the target service if an SG rule allows any of the following CIDR combinations for port 8444:
+Going back to our example, if the attacker is located on 10.0.0.33 and the vulnerable service on "https://10.2.45.9:8444" accepts communication from 10.0.0.33, there must be an SG rule allowing such communication. So the 10.0.0.33 will be allowed to communicate with the target service if an SG rule allows any of the following CIDR combinations for port 8444:
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
 Also some combinations like 10.0.0.32/27, 10.0.0.32/28 etc.. until /31.
 - 10.0.0.33/32 (explicit IP address).
@@ -64,3 +64,4 @@ By running the aforementioned logic against each of these combinations, the IP 1
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
 If port range is used on the SG we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
+I implemented this logic into the SweetCIDR tool, You can refer to the [github page](https://github.com/1lyasam/SweetCIDR) of the tool to get some information about how to actually use it.
