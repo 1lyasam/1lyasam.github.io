@@ -63,4 +63,4 @@ By running the aforementioned logic against each of these combinations, the IP 1
 - Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
-If port range is used we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
+If port range is used on the SG we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
