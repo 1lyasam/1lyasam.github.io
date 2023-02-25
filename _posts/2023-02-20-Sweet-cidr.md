@@ -59,7 +59,7 @@ Also some combinations like 10.0.0.32/27, 10.0.0.32/28 etc.. until /31.
 
 By running the aforementioned logic against each of these combinations, the IP 10.2.45.9 (Our vulnerable service) should be revealed in the results at some point, with a port configuration that might be one of the following:
 - port 8444 
-- 1 (all ports)
+- -1 (all ports)
 - Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
