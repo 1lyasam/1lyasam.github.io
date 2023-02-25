@@ -34,7 +34,7 @@ While frustrated with slow scans, I wanted to find a way to do the scans more ef
 
 I could use publicly available open-source tools such as [awsipinventory](https://github.com/okelet/awsipinventory), which loops through all network interfaces with the help of [describe_network_interfaces()](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html) AWS SDK function, it is possible to extract all IP addresses. 
 The results of such a tool are a good starting point. The tool provides an accurate list of all IPs in the account. But I will still have a knowledge gap regarding the ports. This gap currently can be only closed with a Nmap Port scan.
-I realized that I can use Security groups (SG) and Network interfaces (NICs) close this knowledge gap.
+I realized that I can use Security groups (SG) and Network interfaces (NICs) to close this knowledge gap.
 
 ### Security Groups & Network Interfaces
 Security groups in AWS are lists of traffic control rules that can be attached to a network interface, which is then attached to a specific resource (EC2, RDS, ELB, etc.). When attached, security groups control the inbound and outbound traffic to and from the instance/service. Each NIC should have at least one security group attached to it.
