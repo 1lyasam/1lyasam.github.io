@@ -12,13 +12,13 @@ published: true
 </script>
 
 ### Intro
-SweetCIDR is a cloud network tool designed for Amazon Web Services (AWS). It can help mapping the attack surface on AWS by answering questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool can significantly reduce the time required for AWS network penetration testing and security assessments (Assuming a White-Box scenario).
+SweetCIDR is a cloud network tool designed for Amazon Web Services (AWS). It can help with mapping the attack surface on AWS by answering questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool can significantly reduce the time required for AWS network penetration testing and security assessments (Assuming a White-Box scenario).
 
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
 When conducting an internal White-Box AWS cloud network penetration test on a large cloud environment, Usually there is some kind of "assume breach" approach where you already have some control over a chosen Initial access machine.\
-Your first task will be enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
+Your first task will be enumeration. The goal is to understand and enumerate which IP addresses have open ports, or in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
 For example, suppose you are in a situation where
 1. There are two VPCs (10.0.0.0/16 and 10.2.0.0/16)
 2. The scenario simulates initial access from 10.0.0.33 within the first VPC
