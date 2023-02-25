@@ -12,15 +12,15 @@ published: true
 </script>
 
 ### Intro
-SweetCIDR is a cloud network mapping tool designed for Amazon Web Services (AWS). It can answer questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool significantly reduces the time required for white-box AWS network penetration testing and security assessments.</br>
+SweetCIDR is a cloud network tool designed for Amazon Web Services (AWS). It can help mapping the attack surface on AWS by answering questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool can significantly reduce the time required for AWS network penetration testing and security assessments (Assuming a White-Box scenario).</br>
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
 When conducting a white-box AWS cloud network penetration test on a large cloud environment, the first task is enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
 For example, suppose you are in a situation where
 1. There are two VPCs (10.0.0.0/16 and 10.2.0.0/16)
-2. Attacker's initial access machine is on 10.0.0.33 within the first VPC
-3. Here is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you may want to exploit if you knew about its existence. 
+2. Your scenario simulates initial access from 10.0.0.33 within the first VPC
+3. There is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you may want to exploit if you knew about its existence. 
 4. The two VPCs have VPC peering between them, and routing is configured between 10.0.0.0/24 to 10.2.45.0/24.
 
 <img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style="border:1px solid #555">
