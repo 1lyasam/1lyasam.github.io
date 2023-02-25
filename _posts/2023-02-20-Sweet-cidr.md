@@ -12,7 +12,7 @@ published: true
 </script>
 
 ### Intro
-SweetCIDR is a cloud network mapping tool designed for Amazon Web Services (AWS). It can answer questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool significantly reduces the time required for white-box AWS network penetration testing and security assessments.
+SweetCIDR is a cloud network mapping tool designed for Amazon Web Services (AWS). It can answer questions such as "Which target services can an attacker at 10.0.7.8/24 reach in the cloud, by which protocols, and on which ports?" By using data which collected from AWS SDK , the tool significantly reduces the time required for white-box AWS network penetration testing and security assessments.</br>
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
