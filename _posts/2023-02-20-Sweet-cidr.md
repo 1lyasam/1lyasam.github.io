@@ -41,18 +41,19 @@ Security groups in AWS are lists of traffic control rules that can be attached t
 
 <img src="/images/sg_example.png"  width="700" height="437" style="border:1px solid #555">
 
-As shown above, each rule specifies the allowed source CIDR, port, and protocol. Without an inbound traffic rule, communication with the service is not possible. Keeping this in mind, the following logic can be applied:
+As shown above, each rule specifies the allowed source CIDR, port, and protocol. without an inbound traffic rule, communication with the service is not possible. keeping this in mind, the following logic can be applied:
 1. Loop through all Security groups (sg) in the account
 1. For each sg, loop through all rules inside the sg
-2. For each rule, check if the source field matches a CIDR of our interest
+2. For each rule, check if the "source" field value matches a CIDR of our interest
 3. For each match, search for all the attached network interfaces(NICs) + capture the port and protocol.
 4. For each NIC, take the private and public IP addresses.
 5. For each NIC, print the private + public IP address together with port and protocol.
 
 ### How does this logic solve the problem ? 
 
-Going back to our example, if the attacker is located on "10.0.0.33" and the vulnerable service on https://10.2.45.9:8444 accepts communication from "10.0.0.33", there must be an SG rule allowing such communication. By applying the above logic, the attacking server will be allowed to communicate with the target server if an SG rule allows any of the following CIDR combinations for port 8444:
+Going back to our example, if the attacker is located on "10.0.0.33" and the vulnerable service on "https://10.2.45.9:8444" accepts communication from "10.0.0.33", there must be an SG rule allowing such communication. By applying the above logic, the attacking server will be allowed to communicate with the target server if an SG rule allows any of the following CIDR combinations for port 8444:
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
+Also some combinations like 10.0.0.32/27, 10.0.0.32/28 etc.. until /31.
 - 10.0.0.33/32 (explicit IP address).
 <a/>
 
