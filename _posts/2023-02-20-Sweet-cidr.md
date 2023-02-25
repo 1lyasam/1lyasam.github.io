@@ -16,7 +16,8 @@ SweetCIDR is a cloud network mapping tool designed for Amazon Web Services (AWS)
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
-When conducting a white-box AWS cloud network penetration test on a large cloud environment, the first task is enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." Nmap scanning the 24 CIDR of your current IP can be a good starting point, and you may discover some low-hanging fruits from the scan results. However, as a security consultant or engineer, your task is to cover as many vulnerabilities as possible on a wide attack surface, and sich scan . For example, suppose you are in a situation where
+When conducting a white-box AWS cloud network penetration test on a large cloud environment, the first task is enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
+For example, suppose you are in a situation where
 1. There are two VPCs (10.0.0.0/16 and 10.2.0.0/16)
 2. Attacker's initial access machine is on 10.0.0.33 within the first VPC
 3. Here is a service running on https://10.2.45.9:8444 (Second VPC) with a critical RCE vulnerability that you may want to exploit if you knew about its existence. 
