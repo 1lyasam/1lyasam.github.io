@@ -67,3 +67,25 @@ By running the aforementioned logic against each of these combinations, the IP 1
 Mission completed, we have a logic that will expose all the possible communication paths for the attacker with target IP + ports\range.
 If a port range is used on the SG we will still need another stage of Nmap port scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses. and also, large port ranges are not a best practice anyway, so you can look on it as another finding to raise.\
 I implemented this logic into the SweetCIDR tool, You can refer to the [github page](https://github.com/1lyasam/SweetCIDR) of the tool to get some information about how to actually use it.
+
+Here is an example of how you can run the script to map your external components : 
+```javascript
+SweetCIDR.py -s 0.0.0.0
+Scanning now CIDR: 0.0.0.0/0
+     processing regions ....
+[Some logging prints omitted for visual reasons]
+Finished Processing, printing a table of results...
+
+PublicIp PrivateIp privateIp Ports
+-------------- ------------- ----------- -------
+54.**.**.166 172.31.36.249 81 tcp
+54.**.**.166 172.31.36.249 80 tcp
+54.**.**.166 172.31.36.249 9005 tcp
+34.**.**.43 172.31.38.122 22 tcp
+18.**.**.6 172.31.29.82 80 tcp
+18.**.**.6 172.31.29.82 3389 tcp
+34.**.**.125 172.31.31.3 22 tcp
+34.**.**.125 172.31.31.3 8000 tcp
+Saved Excel file to 0-0-0-0_11.xlsx
+Saved CSV file to 0-0-0-0_11.csv
+```
