@@ -55,6 +55,7 @@ Going back to our example, if the attacker is located on 10.0.0.33 and the vulne
 - 10.0.0.0/8, 10.0.0.0/9, 10.0.0.0/10, 10.0.0.0/11 etc.. until CIDR /26
 Also some combinations like 10.0.0.32/27, 10.0.0.32/28 etc.. until /31.
 - 10.0.0.33/32 (explicit IP address).
+- 0.0.0.0/0 (Any ip within any class)
 <a/>
 
 By running the aforementioned logic against each of these combinations, the IP 10.2.45.9 (Our vulnerable service) should be revealed in the results at some point, with a port configuration that might be one of the following:
