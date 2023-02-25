@@ -33,7 +33,7 @@ To get a full coverage results you will need to scan not only the 10.0.0.0/8 CID
 While frustrated with slow scans, I wanted to find a way to do the scans more efficiently and to sharpen their accuracy. Since the assessment is defined as White-Box, there is no problem using internal information. My immediate thought was to somehow pull information from AWS SDK.
 
 I could use publicly available open-source tools such as [awsipinventory](https://github.com/okelet/awsipinventory), which loops through all network interfaces with the help of [describe_network_interfaces()](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html) AWS SDK function, it is possible to extract all IP addresses. 
-The results of such a tool are a good starting point. The tool provide an accurate list of all IPs in the account. But I will still have a knowledge gap regarding the ports. This gap currently can be only closed with a Nmap Port scan.
+The results of such a tool are a good starting point. The tool provides an accurate list of all IPs in the account. But I will still have a knowledge gap regarding the ports. This gap currently can be only closed with a Nmap Port scan.
 I realized that I can use Security groups (SG) and Network interfaces (NICs) close this knowledge gap.
 
 ### Security Groups & Network Interfaces
