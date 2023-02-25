@@ -17,7 +17,7 @@ SweetCIDR is a cloud network tool designed for Amazon Web Services (AWS). It can
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
-When conducting an internal White-Box AWS cloud network penetration test on a large cloud environment, Usually there is some kind of "assume breach" approach where you already have some control over a chosen Initial access machine.
+When conducting an internal White-Box AWS cloud network penetration test on a large cloud environment, Usually there is some kind of "assume breach" approach where you already have some control over a chosen Initial access machine.\
 Your first task will be enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
 For example, suppose you are in a situation where
 1. There are two VPCs (10.0.0.0/16 and 10.2.0.0/16)
