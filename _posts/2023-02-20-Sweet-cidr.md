@@ -27,7 +27,7 @@ For example, suppose you are in a situation where
 <img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style="border:1px solid #555">
 <font size="3"> The Arrow rerpresents attacker's intereset (The communication itself must be bi-directional)</font>
 
-To get a full coverage results you will need to scan not only the 10.0.0.0/8 CIDR (which is crazy amount of addresses) but also preform a port scan on all possible TCP ports (65536) for each IP address. Using the defult NMAP scan will only scan for 1000 well known ports. To refer to our example, 8444 is not listed as one of the well known ports. In this situation, the time required for scanning becomes very unrealistic, especially for a time-limited (sometimes expensive) security assessment.
+To get a full coverage results you will need to scan not only the 10.0.0.0/8 CIDR (which is crazy amount of addresses) but also preform a port scan on all possible TCP ports (65536) for each IP address. Using the defult [nmap](https://www.networkworld.com/article/3296740/what-is-nmap-why-you-need-this-network-mapper.html) scan will only scan for 1000 well known ports. To refer to our example, 8444 is not listed as one of the well known ports. In this situation, the time required for scanning becomes very unrealistic, especially for a time-limited (sometimes expensive) security assessment.
 
 While frustrated with slow scans, I wanted to find a way to do the scans more efficiently and to sharpen their accuracy. Since the assessment is defined as White-Box, there is no problem using internal information. My immediate thought was to somehow pull information from AWS SDK.
 
