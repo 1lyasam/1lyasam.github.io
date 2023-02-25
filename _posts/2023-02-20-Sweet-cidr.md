@@ -17,7 +17,8 @@ SweetCIDR is a cloud network tool designed for Amazon Web Services (AWS). It can
 [https://github.com/1lyasam/SweetCIDR](https://github.com/1lyasam/SweetCIDR)
 
 ### Background Story
-When conducting a White-Box AWS cloud network penetration test on a large cloud environment, the first task is enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
+When conducting an internal White-Box AWS cloud network penetration test on a large cloud environment, Usually you there is some kind of "assume breach" approach where you already have some control over a chosen Initial access machine.
+Your first task will be enumeration. The goal is to understand and enumerate which IP addresses have open ports, or, in other words, "With whom can I communicate from my current position and how." You are facing a challenge here because now you need to have a list of IP address ranges. Not only that, but also after having such a list, you will need to preform a very time consuming port scans on those IP ranges (or CIDRs). 
 For example, suppose you are in a situation where
 1. There are two VPCs (10.0.0.0/16 and 10.2.0.0/16)
 2. The scenario simulates initial access from 10.0.0.33 within the first VPC
@@ -27,12 +28,12 @@ For example, suppose you are in a situation where
 <img src="/images/cidr_example_2.drawio.png"  width="600" height="375" style="border:1px solid #555">
 <font size="3"> The Arrow rerpresents attacker's intereset (The communication itself must be bi-directional)</font>
 
-To get a full coverage results you will need to scan not only the 10.0.0.0/8 CIDR (which is crazy amount of addresses) but also preform a port scan on all possible TCP ports (65536) for each IP address. Using the defult [nmap](https://www.networkworld.com/article/3296740/what-is-nmap-why-you-need-this-network-mapper.html) scan will only scan for 1000 well known ports. To refer to our example, 8444 is not listed as one of the well known ports. In this situation, the time required for scanning becomes very unrealistic, especially for a time-limited (sometimes expensive) security assessment.
+To get a full coverage results you will need to scan not only the 10.0.0.0/8 CIDR (which is crazy amount of addresses) but also preform a port scan on all possible TCP ports (65536) for each IP address. Using the defult Nmap scan will only scan for 1000 well known ports. To refer to our example, 8444 is not listed as one of the well known ports. In this situation, the time required for scanning becomes very unrealistic, especially for a time-limited (sometimes expensive) security assessment.
 
 While frustrated with slow scans, I wanted to find a way to do the scans more efficiently and to sharpen their accuracy. Since the assessment is defined as White-Box, there is no problem using internal information. My immediate thought was to somehow pull information from AWS SDK.
 
 I could use publicly available open-source tools such as [awsipinventory](https://github.com/okelet/awsipinventory), which loops through all network interfaces with the help of [describe_network_interfaces()](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html) AWS SDK function, it is possible to extract all IP addresses. 
-The results of such a tool are a good starting point. The tool provide an accurate list of all IPs in the account. But I will still have a knowledge gap regarding the ports. This gap currently can be only closed with a nmap Port scan.
+The results of such a tool are a good starting point. The tool provide an accurate list of all IPs in the account. But I will still have a knowledge gap regarding the ports. This gap currently can be only closed with a Nmap Port scan.
 I realized that I can use Security groups (SG) and Network interfaces (NICs) close this knowledge gap.
 
 ### Security Groups & Network Interfaces
@@ -61,4 +62,4 @@ By running the aforementioned logic against each of these combinations, the IP 1
 - Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
-If port range is used we will still need an nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
+If port range is used we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
