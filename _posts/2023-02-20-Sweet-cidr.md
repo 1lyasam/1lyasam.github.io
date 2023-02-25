@@ -63,5 +63,5 @@ By running the aforementioned logic against each of these combinations, the IP 1
 - Some range that contains 8444 (like 7000-9000)
 
 Mission completed, we have a logic that will expose the possible communication with IP + ports\range. This will definitely save a lot of time ! 
-If port range is used on the SG we will still need an Nmap scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses.
+If a port range is used on the SG we will still need another stage of Nmap port scan to find port 8444. But it will be much faster and efficient than scanning hundreds of thousands of addresses. and also, large port ranges are not a best practice anyway, so you can look on it as another finding to raise.
 I implemented this logic into the SweetCIDR tool, You can refer to the [github page](https://github.com/1lyasam/SweetCIDR) of the tool to get some information about how to actually use it.
